@@ -6,11 +6,32 @@
   <component name="ChangeListManager">
     <list default="true" id="82c9dbb5-482e-4d5a-8591-6d34f89ded7e" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../.idea/core_java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/file1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/subdata/file2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/subdata/file3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grep.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outFile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrep.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrepImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/grep-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/original-grep-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/original-grep-1.0.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../jarvis_data_eng_Projects.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../linux_sql/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../linux_sql/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../linux_sql/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../linux_sql/scripts/psql_docker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../linux_sql/scripts/psql_docker.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,10 +58,10 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />

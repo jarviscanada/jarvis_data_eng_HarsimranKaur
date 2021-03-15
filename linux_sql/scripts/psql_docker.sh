@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-#!/bin/bash
-
-echo "Hello World"
-=======
 #! bin/bash
 sudo systemctl status docker || systemctl start docker
 case $1 in
@@ -36,4 +31,3 @@ stop)
   echo 'Invalid Command Line Argument'
   ;;
 esac
->>>>>>> feature/ddl
