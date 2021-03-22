@@ -24,7 +24,6 @@ public class JavaGrepImp implements JavaGrep {
     private String rootPath;
     private String outFile;
 
-
     @Override
     public String getRootPath(){ return rootPath; }
     @Override
@@ -99,10 +98,18 @@ public class JavaGrepImp implements JavaGrep {
         try {
             String outputFile=getOutFile();
             FileWriter out = new FileWriter(outputFile);
-            for(String line:lines){
+            lines.stream().forEach(l -> {
+                try {
+                    out.write(l);
+                    out.write('\n');
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            /*for(String line:lines){
                 out.write(line);
                 out.write('\n');
-            }
+            }*/
             out.close();
         } catch(IOException e){
             e.printStackTrace();
