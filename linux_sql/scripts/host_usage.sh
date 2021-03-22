@@ -1,16 +1,10 @@
+#!/bin/bash
+
 psql_host=$1;
 psql_port=$2;
 db_name=$3;
 psql_user=$4;
 psql_password=$5;
-
-    "timestamp" TIMESTAMP NOT NULL,
-    host_id SERIAL NOT NULL,
-    memory_free INTEGER NOT NULL,
-    cpu_idle INTEGER NOT NULL,
-    cpu_kernel INTEGER NOT NULL,
-    disk_io INTEGER NOT NULL,
-    disk_available
 
 timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 memory_free=$(cat /proc/meminfo | egrep "^MemFree\:" | awk '{print $2}' | xargs)
@@ -24,3 +18,4 @@ VALUES('$timestamp', $memory_free, $cpu_idle, $cpu_kernel, $disk_io, $disk_avail
 
 export PGPASSWORD=$psql_password
 psql -h $psql_host -p $psql_port -U $psql_user -d $db_name -c "$insert_stmt"
+end

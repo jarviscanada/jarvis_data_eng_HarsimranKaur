@@ -1,3 +1,5 @@
+#!/bin/bash
+
 psql_host=$1;
 psql_port=$2;
 db_name=$3;
@@ -27,3 +29,4 @@ $cpu_mhz, $l2_cache, $total_mem, '$timestamp'),
 
 export PGPASSWORD=$psql_password
 psql -h $psql_host -p $psql_port -U $psql_user -d $db_name -c "$insert_stmt"
+end

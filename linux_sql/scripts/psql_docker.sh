@@ -1,9 +1,9 @@
-#! bin/bash
+#!/bin/bash
 sudo systemctl status docker || systemctl start docker
 case $1 in
 
 create)
-  $line_count = docker container ls -a -f name=jrvs-psql | wc -l
+  line_count='docker container ls -a -f name=jrvs-psql | wc -l'
   if [ $line_count -eq 2 ] ;
   then
   echo 'Created Already'
@@ -31,3 +31,4 @@ stop)
   echo 'Invalid Command Line Argument'
   ;;
 esac
+end
