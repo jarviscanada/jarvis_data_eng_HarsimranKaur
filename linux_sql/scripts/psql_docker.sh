@@ -1,6 +1,9 @@
 #!/bin/bash
+command=$1
+username=$2
+password=$3
 sudo systemctl status docker || systemctl start docker
-case $1 in
+case $command in
 
 create)
   line_count='docker container ls -a -f name=jrvs-psql | wc -l'
@@ -10,12 +13,12 @@ create)
   exit 0
   fi
 
-  if [ -z "$2" ] || [ -z "$3" ] ;
+  if [ -z "$username" ] || [ -z "$password" ] ;
   then
     echo 'Username and Password not submitted'
     exit 0
   else
-    docker run --name jrvs-psql -e POSTGRES_PASSWORD=$3 -e POSTGRES_USER=$2 -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+    docker run --name jrvs-psql -e POSTGRES_PASSWORD=${password} -e POSTGRES_USER=${username} -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
     exit $?
   fi
   ;;
