@@ -8,7 +8,8 @@ CREATE TABLE PUBLIC.host_info
     cpu_mhz INTEGER NOT NULL,
     l2_cache INTEGER NOT NULL,
     total_mem INTEGER NOT NULL,
-    "timestamp" TIMESTAMP NOT NULL
+    "timestamp" TIMESTAMP NOT NULL,
+    PRIMARY KEY(id)
 );
 CREATE TABLE PUBLIC.host_usage
 (
@@ -18,5 +19,6 @@ CREATE TABLE PUBLIC.host_usage
     cpu_idle INTEGER NOT NULL,
     cpu_kernel INTEGER NOT NULL,
     disk_io INTEGER NOT NULL,
-    disk_available INTEGER NOT NULL
+    disk_available INTEGER NOT NULL,
+    FOREIGN KEY (host_id) REFERENCES PUBLIC.host_info (id)
 );
