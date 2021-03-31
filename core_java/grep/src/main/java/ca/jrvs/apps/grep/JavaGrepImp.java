@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 public class JavaGrepImp implements JavaGrep {
 
-    final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
+    final static Logger logger = LoggerFactory.getLogger(JavaGrep.class);
 
     private String regex;
     private String rootPath;
@@ -65,7 +65,7 @@ public class JavaGrepImp implements JavaGrep {
                     .map(File::new)
                     .collect(Collectors.toList());
         }catch(IOException e){
-            javaGrepImp.logger.error("Exception found in listFiles()",ex);
+            logger.error("Exception found in listFiles()",e);
         }
         return null;
     }
@@ -81,7 +81,7 @@ public class JavaGrepImp implements JavaGrep {
             in.close();
             return list;
         } catch(IOException e){
-            javaGrepImp.logger.error("Exception found in readLines()",ex);
+            logger.error("Exception found in readLines()",e);
         }
         return null;
     }
@@ -97,21 +97,21 @@ public class JavaGrepImp implements JavaGrep {
         try {
             String outputFile=getOutFile();
             FileWriter out = new FileWriter(outputFile);
-            lines.stream().forEach(l -> {
+            /*lines.stream().forEach(l -> {
                 try {
                     out.write(l);
                     out.write('\n');
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    javaGrepImp.logger.error("Exception found in write()",ex);
                 }
-            });
-            /*for(String line:lines){
+            });*/
+            for(String line:lines){
                 out.write(line);
                 out.write('\n');
-            }*/
+            }
             out.close();
-        } catch(IOException e){
-            javaGrepImp.logger.error("Exception found in writeToFile()",ex);
+        } catch (Exception e){
+            logger.error("Exception found in process()",e);
         }
     }
 
@@ -120,7 +120,6 @@ public class JavaGrepImp implements JavaGrep {
            throw new IllegalArgumentException("USAGE: JavaGrep regex rootpath outFile");
        }
        BasicConfigurator.configure();
-
        JavaGrepImp javaGrepImp = new JavaGrepImp();
        javaGrepImp.setRegex(args[0]);
        javaGrepImp.setRootPath(args[1]);
@@ -128,8 +127,8 @@ public class JavaGrepImp implements JavaGrep {
 
        try {
            javaGrepImp.process();
-       }catch (Exception ex){
-           javaGrepImp.logger.error("Exception found in process()",ex);
+       }catch (Exception e){
+           logger.error("Exception found in process()",e);
        }
     }
 
