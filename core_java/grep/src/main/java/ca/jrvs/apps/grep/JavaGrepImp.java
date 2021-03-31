@@ -1,10 +1,5 @@
 package ca.jrvs.apps.grep;
 
-import org.apache.log4j.BasicConfigurator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,6 +10,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JavaGrepImp implements JavaGrep {
 
@@ -66,7 +65,7 @@ public class JavaGrepImp implements JavaGrep {
                     .map(File::new)
                     .collect(Collectors.toList());
         }catch(IOException e){
-            e.printStackTrace();
+            javaGrepImp.logger.error("Exception found in listFiles()",ex);
         }
         return null;
     }
@@ -82,7 +81,7 @@ public class JavaGrepImp implements JavaGrep {
             in.close();
             return list;
         } catch(IOException e){
-            e.printStackTrace();
+            javaGrepImp.logger.error("Exception found in readLines()",ex);
         }
         return null;
     }
@@ -112,7 +111,7 @@ public class JavaGrepImp implements JavaGrep {
             }*/
             out.close();
         } catch(IOException e){
-            e.printStackTrace();
+            javaGrepImp.logger.error("Exception found in writeToFile()",ex);
         }
     }
 
@@ -130,7 +129,7 @@ public class JavaGrepImp implements JavaGrep {
        try {
            javaGrepImp.process();
        }catch (Exception ex){
-           javaGrepImp.logger.error("meaninful message",ex);
+           javaGrepImp.logger.error("Exception found in process()",ex);
        }
     }
 
