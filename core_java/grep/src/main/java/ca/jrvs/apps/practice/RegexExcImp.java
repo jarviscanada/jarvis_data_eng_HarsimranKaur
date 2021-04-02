@@ -1,8 +1,9 @@
 package ca.jrvs.apps.practice;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexExcImp implements RegexImp{
+public class RegexExcImp implements RegexExc {
     @Override
     public boolean matchJpeg(String filename){
         String regex="^(.+(\\.jpg))|(.+(\\.jpeg))$";
