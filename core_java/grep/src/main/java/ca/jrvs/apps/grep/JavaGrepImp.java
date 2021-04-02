@@ -97,14 +97,7 @@ public class JavaGrepImp implements JavaGrep {
         try {
             String outputFile=getOutFile();
             FileWriter out = new FileWriter(outputFile);
-            /*lines.stream().forEach(l -> {
-                try {
-                    out.write(l);
-                    out.write('\n');
-                } catch (IOException e) {
-                    javaGrepImp.logger.error("Exception found in write()",ex);
-                }
-            });*/
+
             for(String line:lines){
                 out.write(line);
                 out.write('\n');

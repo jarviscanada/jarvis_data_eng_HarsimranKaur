@@ -1,2 +1,0 @@
-My name is Harsimran Kaur.
-I am working on the grep project.
