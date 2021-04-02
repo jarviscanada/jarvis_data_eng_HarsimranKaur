@@ -49,14 +49,18 @@ public class JavaGrepImpLambda implements JavaGrep {
     public void process() throws IOException {
         List<String> matchedLines = new ArrayList<String>();
         String rootDir=getRootPath();
-        for(File file:listFiles(rootDir)){
-            for(String line:readLines(file)){
-                if(containsPattern(line)){
-                    matchedLines.add(line);
+        listFiles(rootDir).stream().forEach(
+                file->{
+                try {
+                    writeToFile(readLines(file).stream()
+                            .filter(line -> containsPattern(line))
+                                    .collect(Collectors.toList()));
                 }
-            }
-        }
-        writeToFile(matchedLines);
+                catch(IOException e){
+                    logger.error("Exception in process()",e);
+                }
+                }
+        );
     }
     @Override
     public List<File> listFiles(String rootDir) {
@@ -71,15 +75,8 @@ public class JavaGrepImpLambda implements JavaGrep {
     }
     @Override
     public List<String> readLines(File inputFile) {
-        try {
-            BufferedReader in = new BufferedReader(new FileReader(inputFile));
-            String str;
-            List<String> list = new ArrayList<String>();
-            while ((str = in.readLine()) != null) {
-                list.add(str);
-            }
-            in.close();
-            return list;
+        try(Stream<String> stream = Files.lines(inputFile.toPath())){
+                return stream.collect(Collectors.toList());
         } catch(IOException e){
             logger.error("Exception found in readLines()",e);
         }
@@ -94,25 +91,16 @@ public class JavaGrepImpLambda implements JavaGrep {
     }
     @Override
     public void writeToFile(List<String> lines) throws IOException {
-        try {
             String outputFile=getOutFile();
             FileWriter out = new FileWriter(outputFile);
             lines.stream().forEach(l -> {
                 try {
-                    out.write(l);
-                    out.write('\n');
+                    out.write(l + '\n');
                 } catch (IOException e) {
-                    logger.error("Exception found in write()",e);
+                    logger.error("Exception found in writeToFile()", e);
                 }
             });
-            /*for(String line:lines){
-                out.write(line);
-                out.write('\n');
-            }*/
             out.close();
-        } catch (Exception e){
-            logger.error("Exception found in process()",e);
-        }
     }
 
     public static void main(String args[]) {
